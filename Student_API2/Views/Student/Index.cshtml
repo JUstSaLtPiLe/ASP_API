@@ -1,0 +1,37 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1><a href="/Student/Create">Add new Student</a></h1>
+<table id="index" style="margin-top: 50px; width: 500px; text-align: center">
+    <thead>
+        <tr>
+            <th style="text-align:center;">Name</th>
+            <th style="text-align:center;">RollNumber</th>
+            <th style="text-align:center;">Avatar</th>
+        </tr>
+    </thead>
+    <tbody id="list-student">
+        @foreach (var student in Model)
+        {
+            <tr id="student-@student.Id">
+                <td>@student.Name</td>
+                <td>@student.RollNumber</td>
+                <td>@student.Avatar</td>
+                <td><button type="button" onclick="editItem(@student.Id)">Edit</button></td>
+                <td><button type="button" onclick="deleteItem(@student.Id)">Delete</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<form action="javascript:void(0);" method="PUT" id="edit-form">
+    <input type="hidden" id="edit-id" />
+    <label>Name</label>
+    <input type="text" id="edit-name">
+    <label style="display: block; margin-top: 10px">RollNumber</label>
+    <input type="text" id="edit-rollNumber">
+    <label style="display: block; margin-top: 10px">Avavar</label>
+    <input type="text" id="edit-avatar">
+    <button type="submit">Update</button>
+</form>

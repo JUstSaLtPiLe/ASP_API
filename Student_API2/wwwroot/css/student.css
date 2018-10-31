@@ -1,0 +1,8 @@
+﻿#edit-form {
+    display: none;
+}
+
+#edit-form > *, #create-form > * {
+        display: block;
+        margin-top: 10px;
+}
